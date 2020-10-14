@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+</head>
+<body>
+<!-- GET / POST 으로 각각 전송해보는 실습 -->
+
+    <!-- GET 방식 예1) 일반링크 -->
+    <a href="http://localhost:9999?id=scott&pass=1234">서버메인에 접속</a>
+
+    <!-- GET 방식 예2) 폼태그에 아무것도 지정하지 않은 경우 (즉, 디폴트) -->
+    <form action="http://localhost:9999" method="get">
+        <input type="text" name="id"/>
+        <input type="password" name="pass"/>
+        <button>GET 전송</button>
+    </form>
+
+
+    <!-- POST 방식 예1)  -->
+    <form action="http://localhost:9999" method="post">
+        <input type="text" name="id"/>
+        <input type="password" name="pass"/>
+        <button>POST 전송</button>
+    </form>
+
+
+
+</body>
+</html>
