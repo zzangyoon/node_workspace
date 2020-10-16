@@ -16,7 +16,8 @@ var server = http.createServer(function(request, response){
             console.log("읽기 실패", error);
         }else{
             response.writeHead(200, {"Content-Type":"text/html; charset=utf-8"});
-            response.end(ejs.render(data));
+            response.end(ejs.render(data)); //ejs파일의 <%%> 코드영역을 서버에서 수행시킨후, 
+                                                           //응답정보를 구성하여 클라이언트에게 보낸다
         }
     });
 });

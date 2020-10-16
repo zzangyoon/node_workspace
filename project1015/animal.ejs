@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<script>
+function getSubList(obj){
+    //서버에 요청(GET / POST)
+    //javascript 에서 바로 mysql 연동 : select * from animal where category_id=2;  
+    //javascript는 보안이 불가(HTML소스와 함꼐 작성되므로, 소스보기에서 원본소스가 노출됨)
+    //var sel1 = document.getElementsByName("category_id")[0];  //이 경우엔 밑에 value값을 sel1.value로 줘야함
+    //밑에 getSubList에서 this를 매개변수로 받아오면, 여기서 obj로 받아서 밑에 obj.value로 하면된다
+
+    location.href="/animal?category_id="+obj.value;  //(셀렉박스값)
+
+}
+</script>
+</head>
+<body>
+서버에서 다시 넘겨받은 category_id는 <%=category_id%>
+<select name="category_id" id="" onChange="getSubList(this)">
+    <option value="0">동물구분</option>
+    <%for(var i=0; i<categoryArray.length; i++){%>
+        <%var category = categoryArray[i];%>
+        <option <%if(category_id==category.category_id){%>selected<%}%> value="<%=category.category_id%>"><%=category.category_name%></option>
+    <%}%>
+    </select>
+
+<select name="animal_id" id="">
+    <%for(var i=0; i<animalArray.length; i++){%>
+    <%var animal = animalArray[i];%>
+    <option value="<%=animal.animal_id%>"><%=animal.name%></option>
+    <%}%>
+</select>
+
+</body>
+</html>
